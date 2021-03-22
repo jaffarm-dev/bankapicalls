@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "f1be341a-112c-4458-9c51-40de682df33e",
+		"name": "Curls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "#FO4BFBC05E42",
+			"item": [
+				{
+					"name": "http://localhost:8080/api/v1/account/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\":\"002\",\n    \"balance\":\"1.0\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"002\",\n    \"transactionTs\": \"2021-03-21T01:02:03.8Z\",\n    \"type\": \"DEPOSIT\",\n    \"amount\": 89.1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/balance/002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"balance",
+								"002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transactions for given date range with given transaction type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DateFrom",
+								"type": "text",
+								"value": "2021-03-20 08:21"
+							},
+							{
+								"key": "DateTo",
+								"type": "text",
+								"value": "2021-03-21 08:21"
+							},
+							{
+								"key": "Type",
+								"type": "text",
+								"value": "WITHDRAW"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/transaction/002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"transaction",
+								"002"
+							]
+						},
+						"description": "Getting transactions based on given date and transaction type"
+					},
+					"response": []
+				},
+				{
+					"name": "WITHDRAW",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"002\",\n    \"transactionTs\": \"2021-03-21T01:02:03.8Z\",\n    \"type\": \"WITHDRAW\",\n    \"amount\": 89.1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transactions for given date range",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DateFrom",
+								"value": "2021-03-20 08:21"
+							},
+							{
+								"key": "DateTo",
+								"value": "2021-03-21 08:21"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/account/transaction/002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								"transaction",
+								"002"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "3Rivers API Developer Interview “Assignment”"
+		}
+	]
+}
